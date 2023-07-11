@@ -27,3 +27,11 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
+event.waitUntil(
+  clients.matchAll({ type: 'window' })
+    .then(function(clientList) {
+      for (var i = 0; i < clientList.length; i++) {
+        const state = clientList[i].visibilityState;
+      }
+    })
+);
